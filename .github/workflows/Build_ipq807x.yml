@@ -57,7 +57,7 @@ jobs:
         uses: actions/checkout@main
 
       - name: Free disk space
-        uses: wingkinl/actions@free-disk
+        uses: xiangfeidexiaohuo/actions@free-disk
         with:
           build-mount-path: /home/runner/work/AE86Wrt/AE86Wrt
 
@@ -76,7 +76,7 @@ jobs:
           REPO_URL: https://github.com/coolsnowwolf/lede
           REPO_BRANCH: master
         run: |
-          git clone https://github.com/wingkinl/AE86Wrt.git && mv ./AE86Wrt/* ./ && rm -rf ./AE86Wrt
+          git clone -b custom https://github.com/wingkinl/AE86Wrt.git && mv ./AE86Wrt/* ./ && rm -rf ./AE86Wrt
           git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
           cd openwrt
           cp -f ../diy/lean/lean1.sh ./
