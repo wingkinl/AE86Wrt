@@ -18,14 +18,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        model: ["AX6", "AX3600", "AX9000"]
+        # model: ["AX6", "AX3600", "AX9000"]
+        model: ["AX3600"]
         include:
-          - model: "AX6"
-            config_file: "./configs/ARM/ipq/AX6.config"
-            description_prefix: "AE86Wrt-Redmi-AX6"
-            sysupgrade_file: "openwrt-qualcommax-ipq807x-redmi_ax6-squashfs-sysupgrade.bin"
-            factory_file: "openwrt-qualcommax-ipq807x-redmi_ax6-squashfs-factory.ubi"
-            type: "ipq807x"
+          # - model: "AX6"
+          #   config_file: "./configs/ARM/ipq/AX6.config"
+          #   description_prefix: "AE86Wrt-Redmi-AX6"
+          #   sysupgrade_file: "openwrt-qualcommax-ipq807x-redmi_ax6-squashfs-sysupgrade.bin"
+          #   factory_file: "openwrt-qualcommax-ipq807x-redmi_ax6-squashfs-factory.ubi"
+          #   type: "ipq807x"
 
           - model: "AX3600"
             config_file: "./configs/ARM/ipq/AX3600.config"
@@ -34,19 +35,19 @@ jobs:
             factory_file: "openwrt-qualcommax-ipq807x-xiaomi_ax3600-squashfs-factory.ubi"
             type: "ipq807x"
 
-          - model: "AX9000"
-            config_file: "./configs/ARM/ipq/AX9000.config"
-            description_prefix: "AE86Wrt-Xiaomi-AX9000"
-            sysupgrade_file: "openwrt-qualcommax-ipq807x-xiaomi_ax9000-squashfs-sysupgrade.bin"
-            factory_file: "openwrt-qualcommax-ipq807x-xiaomi_ax9000-squashfs-factory.ubi"
-            type: "ipq807x"
+          # - model: "AX9000"
+          #   config_file: "./configs/ARM/ipq/AX9000.config"
+          #   description_prefix: "AE86Wrt-Xiaomi-AX9000"
+          #   sysupgrade_file: "openwrt-qualcommax-ipq807x-xiaomi_ax9000-squashfs-sysupgrade.bin"
+          #   factory_file: "openwrt-qualcommax-ipq807x-xiaomi_ax9000-squashfs-factory.ubi"
+          #   type: "ipq807x"
 
-          - model: "301W"
-            config_file: "./configs/ARM/ipq/301W.config"
-            description_prefix: "AE86Wrt-QNAP-301W"
-            sysupgrade_file: "openwrt-qualcommax-ipq807x-qnap_301w-squashfs-sysupgrade.bin"
-            factory_file: "openwrt-qualcommax-ipq807x-qnap_301w-squashfs-factory.bin"
-            type: "qnap"
+          # - model: "301W"
+          #   config_file: "./configs/ARM/ipq/301W.config"
+          #   description_prefix: "AE86Wrt-QNAP-301W"
+          #   sysupgrade_file: "openwrt-qualcommax-ipq807x-qnap_301w-squashfs-sysupgrade.bin"
+          #   factory_file: "openwrt-qualcommax-ipq807x-qnap_301w-squashfs-factory.bin"
+          #   type: "qnap"
 
           ##- model: "BE7000"
           ##  config_file: "./configs/ARM/ipq/BE7000.config"
