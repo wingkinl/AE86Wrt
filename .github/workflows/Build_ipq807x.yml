@@ -1,5 +1,8 @@
 name: Build_ipq807x
 
+permissions:
+  contents: write
+
 on:
   repository_dispatch:
   workflow_dispatch:
@@ -76,7 +79,7 @@ jobs:
           REPO_URL: https://github.com/coolsnowwolf/lede
           REPO_BRANCH: master
         run: |
-          git clone https://github.com/xiangfeidexiaohuo/AE86Wrt.git && mv ./AE86Wrt/* ./ && rm -rf ./AE86Wrt
+          git clone -b custom https://github.com/wingkinl/AE86Wrt.git && mv ./AE86Wrt/* ./ && rm -rf ./AE86Wrt
           git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
           cd openwrt
           cp -f ../diy/lean/lean1.sh ./
@@ -184,7 +187,7 @@ jobs:
           echo "release_name=AE86Wrt-IPQ807x-6.12内核-$(date +%Y%m%d)" >> $GITHUB_OUTPUT
 
       - name: Create release
-        uses: softprops/action-gh-release@main
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.release_info.outputs.release_tag }}
           name: ${{ steps.release_info.outputs.release_name }}
