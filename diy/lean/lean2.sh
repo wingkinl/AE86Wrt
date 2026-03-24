@@ -20,8 +20,10 @@ echo -e "msgstr \"温度\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
               
 ##配置ip等
 sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm-k3|TARGET_DEVICES += phicomm-k3| ; s|# TARGET_DEVICES += phicomm_k3|TARGET_DEVICES += phicomm_k3|' target/linux/bcm53xx/image/Makefile
-sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
-sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/luci2/bin/config_generate
+#sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
+#sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/luci2/bin/config_generate
+find package/base-files -name config_generate -exec \
+  sed -i 's/192.168.1.1/192.168.2.1/g' {} \;
 
 ##清除默认密码password
 sed -i '/V4UetPzk$CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
@@ -55,8 +57,10 @@ sed -i "s/NAME=\"*.*\"/NAME=\"AE86Wrt\"/g" package/base-files/files/usr/lib/os-r
 sed -i "s/BUILD_ID=\"*.*\"/BUILD_ID=\"$(date +%Y%m%d) By DaoDao\"/g" package/base-files/files/usr/lib/os-release
 
 ##更改主机名
-sed -i "s/hostname='.*'/hostname='AE86Wrt'/g" package/base-files/files/bin/config_generate
-sed -i "s/hostname='.*'/hostname='AE86Wrt'/g" package/base-files/luci2/bin/config_generate
+#sed -i "s/hostname='.*'/hostname='AE86Wrt'/g" package/base-files/files/bin/config_generate
+#sed -i "s/hostname='.*'/hostname='AE86Wrt'/g" package/base-files/luci2/bin/config_generate
+find package/base-files -name config_generate -exec \
+  sed -i "s/hostname='.*'/hostname='AE86Wrt'/g" {} \;
 
 ##WiFi
 sed -i "s/LEDE/AE86/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
